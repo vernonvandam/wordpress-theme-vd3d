@@ -142,8 +142,11 @@ p.vd3d-eyebrow,
 .vd3d-shop-hero-copy {
   color: var(--vd3d-industrial-muted);
   line-height: 1.7;
-  /* Keep the paragraph aligned with the heading but limit its line length. */
-  padding-right: max(0px, calc(100% - 560px));
+  /* Same box as the heading (so it lines up at every width), with the text held to
+     about 560px by padding on the right. min() keeps that padding correct whether the
+     container is wider or narrower than the 1200px content width. */
+  box-sizing: border-box;
+  padding-right: max(0px, calc(min(100%, 1200px) - 560px));
 }
 
 /* Category list rendered by the Product Categories block */
