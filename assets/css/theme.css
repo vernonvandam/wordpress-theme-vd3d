@@ -1,0 +1,414 @@
+/* VD3D shop theme. Colours, fonts and sizes come from theme.json presets; see brand.md in the
+   cloudflare-pages-vd3d repo for the rules. Only layout and component styling lives here. */
+
+:root {
+  --vd3d-site-width: min(1200px, calc(100% - 2 * clamp(16px, 4vw, 48px)));
+  --vd3d-radius: 6px;
+  --vd3d-green: var(--wp--preset--color--green);
+  --vd3d-ink: var(--wp--preset--color--ink);
+  --vd3d-muted: var(--wp--preset--color--muted);
+  --vd3d-border: var(--wp--preset--color--border);
+  --vd3d-surface: var(--wp--preset--color--surface);
+  --vd3d-industrial-muted: var(--wp--preset--color--industrial-muted);
+  --vd3d-industrial-border: var(--wp--preset--color--industrial-border);
+}
+
+/* ---------- Header ---------- */
+.wp-site-blocks > header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.admin-bar .wp-site-blocks > header {
+  top: var(--wp-admin--admin-bar--height, 32px);
+}
+.vd3d-header {
+  padding-inline: 0 !important;
+}
+.vd3d-header-top,
+.vd3d-nav,
+.vd3d-footer-main,
+.vd3d-footer-bottom {
+  width: var(--vd3d-site-width);
+  margin-inline: auto;
+}
+.vd3d-header-top {
+  min-height: 76px;
+  gap: 24px;
+}
+.vd3d-brand {
+  display: inline-flex;
+  align-items: center;
+}
+.vd3d-header .vd3d-brand img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+.vd3d-header-actions {
+  gap: 20px;
+  align-items: center;
+}
+.vd3d-header a {
+  color: var(--vd3d-industrial-muted);
+  text-decoration: none;
+}
+.vd3d-header a:hover,
+.vd3d-header a:focus-visible {
+  color: var(--wp--preset--color--industrial-text);
+}
+.vd3d-header-back {
+  font-size: var(--wp--preset--font-size--small);
+}
+.vd3d-header .wc-block-mini-cart__button,
+.vd3d-header .wc-block-customer-account a {
+  color: var(--wp--preset--color--industrial-text);
+}
+.vd3d-header .wc-block-mini-cart__badge {
+  background: var(--vd3d-green);
+  color: var(--wp--preset--color--on-green);
+}
+.vd3d-header-nav {
+  border-top: 1px solid var(--vd3d-industrial-border);
+}
+.vd3d-nav {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 4vw, 52px);
+  font-size: var(--wp--preset--font-size--small);
+}
+
+/* ---------- Shared ---------- */
+.vd3d-main {
+  padding-top: var(--wp--preset--spacing--40);
+  padding-bottom: var(--wp--preset--spacing--60);
+}
+.vd3d-front {
+  padding-top: 0;
+}
+p.vd3d-eyebrow,
+.vd3d-eyebrow {
+  font-size: var(--wp--preset--font-size--eyebrow);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--vd3d-muted);
+  margin-bottom: 12px;
+}
+.vd3d-eyebrow a {
+  color: inherit;
+  text-decoration: none;
+}
+.vd3d-section {
+  margin-top: var(--wp--preset--spacing--50);
+}
+.wc-block-breadcrumbs {
+  font-size: var(--wp--preset--font-size--small);
+  color: var(--vd3d-muted);
+}
+.wc-block-breadcrumbs a {
+  color: inherit;
+}
+
+/* Outline button on dark backgrounds */
+.vd3d-button-outline-dark .wp-block-button__link {
+  background: transparent;
+  color: var(--wp--preset--color--industrial-text);
+  border: 1px solid color-mix(in srgb, var(--wp--preset--color--industrial-muted) 50%, transparent);
+}
+.vd3d-button-outline-dark .wp-block-button__link:hover {
+  background: var(--vd3d-industrial-border);
+  color: var(--wp--preset--color--industrial-text);
+}
+
+/* ---------- Shop home ---------- */
+.vd3d-shop-hero {
+  padding-top: var(--wp--preset--spacing--60);
+  padding-bottom: var(--wp--preset--spacing--60);
+}
+.vd3d-shop-hero .vd3d-eyebrow {
+  color: var(--vd3d-industrial-muted);
+}
+.vd3d-shop-hero .vd3d-shop-hero-title {
+  color: var(--wp--preset--color--industrial-text);
+  font-size: var(--wp--preset--font-size--display);
+  font-weight: 700;
+  line-height: 1.06;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+.vd3d-shop-hero-copy {
+  color: var(--vd3d-industrial-muted);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* Category list rendered by the Product Categories block */
+.vd3d-category-grid ul.wc-block-product-categories-list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+.vd3d-category-grid .wc-block-product-categories-list-item {
+  margin: 0;
+}
+.vd3d-category-grid .wc-block-product-categories-list-item > a {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  padding: 16px;
+  border: 1px solid var(--vd3d-border);
+  border-radius: var(--vd3d-radius);
+  background: var(--wp--preset--color--white);
+  color: var(--vd3d-ink);
+  text-decoration: none;
+  font-family: var(--wp--preset--font-family--heading);
+  font-size: var(--wp--preset--font-size--lead);
+  font-weight: 600;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.vd3d-category-grid .wc-block-product-categories-list-item > a:hover {
+  border-color: var(--vd3d-green);
+  transform: translateY(-2px);
+}
+.vd3d-category-grid .wc-block-product-categories-list-item__image img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--vd3d-surface);
+}
+.vd3d-category-grid .wc-block-product-categories-list-item-count {
+  font-family: var(--wp--preset--font-family--body);
+  font-size: var(--wp--preset--font-size--small);
+  font-weight: 400;
+  color: var(--vd3d-muted);
+}
+
+/* ---------- Category and shop archives ---------- */
+.vd3d-archive-hero {
+  padding: var(--wp--preset--spacing--40) 0 var(--wp--preset--spacing--30);
+  border-bottom: 1px solid var(--vd3d-border);
+  margin-bottom: var(--wp--preset--spacing--30);
+}
+.vd3d-archive-hero h1 {
+  margin: 0;
+}
+.vd3d-archive-hero .wp-block-term-description {
+  max-width: 640px;
+  color: var(--vd3d-muted);
+  font-size: var(--wp--preset--font-size--lead);
+  line-height: 1.7;
+  margin-top: 12px;
+}
+.vd3d-toolbar {
+  font-size: var(--wp--preset--font-size--small);
+  color: var(--vd3d-muted);
+  margin-bottom: var(--wp--preset--spacing--20);
+}
+
+/* Product cards */
+.vd3d-products .wc-block-product {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.vd3d-products .wc-block-components-product-image {
+  margin-bottom: 4px !important;
+}
+.vd3d-products .wc-block-components-product-image img {
+  border-radius: var(--vd3d-radius);
+  background: var(--vd3d-surface);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.vd3d-products .wp-block-post-title {
+  margin: 0;
+  line-height: 1.3;
+}
+.vd3d-products .wp-block-post-title a {
+  color: var(--vd3d-ink);
+  text-decoration: none;
+}
+.vd3d-products .wp-block-post-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.vd3d-products .wc-block-components-product-price {
+  margin: 0;
+}
+.vd3d-products .wp-block-woocommerce-product-button {
+  margin-top: auto;
+}
+.vd3d-products .wp-block-post-excerpt {
+  color: var(--vd3d-muted);
+  margin: 0;
+}
+
+/* Layout: showcase (display pieces and gifts) */
+.vd3d-products--showcase .wc-block-components-product-image img {
+  aspect-ratio: 4 / 3;
+}
+.vd3d-products--showcase .wc-block-product-template {
+  row-gap: var(--wp--preset--spacing--50);
+}
+.vd3d-layout-showcase .vd3d-archive-hero {
+  background: var(--wp--preset--color--industrial);
+  color: var(--wp--preset--color--industrial-text);
+  border: 0;
+  border-radius: var(--vd3d-radius);
+  padding: var(--wp--preset--spacing--50) clamp(20px, 4vw, 56px);
+}
+.vd3d-layout-showcase .vd3d-archive-hero h1 {
+  color: var(--wp--preset--color--industrial-text);
+}
+.vd3d-layout-showcase .vd3d-archive-hero .vd3d-eyebrow,
+.vd3d-layout-showcase .vd3d-archive-hero .wp-block-term-description {
+  color: var(--vd3d-industrial-muted);
+}
+
+/* Layout: compact (small parts and accessories) */
+.vd3d-products--compact .wp-block-woocommerce-product-button .wp-block-button__link {
+  padding: 10px 14px;
+  font-size: var(--wp--preset--font-size--small);
+}
+
+/* ---------- Product page ---------- */
+.vd3d-product-top {
+  gap: var(--wp--preset--spacing--50) !important;
+  margin-top: var(--wp--preset--spacing--20);
+}
+.vd3d-product-summary h1 {
+  margin: 4px 0 12px;
+}
+.vd3d-product-summary .wp-block-post-excerpt {
+  font-size: var(--wp--preset--font-size--lead);
+  line-height: 1.7;
+  color: var(--vd3d-muted);
+}
+.vd3d-product-cats {
+  margin-bottom: 0;
+}
+.vd3d-product-assurance {
+  margin-top: var(--wp--preset--spacing--30);
+  padding: 16px 20px;
+  border-left: 3px solid var(--vd3d-green);
+  background: color-mix(in srgb, var(--vd3d-green) 8%, transparent);
+  border-radius: 0 4px 4px 0;
+}
+.vd3d-assurance-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: var(--wp--preset--font-size--body);
+}
+.vd3d-product .wp-block-woocommerce-product-meta {
+  font-size: var(--wp--preset--font-size--small);
+  color: var(--vd3d-muted);
+}
+.vd3d-product-story {
+  margin-top: var(--wp--preset--spacing--50);
+  padding-top: var(--wp--preset--spacing--40);
+  border-top: 1px solid var(--vd3d-border);
+}
+.vd3d-product-story .wp-block-post-content {
+  font-size: var(--wp--preset--font-size--lead);
+  line-height: 1.8;
+}
+.vd3d-product-story .wp-block-post-content h2 {
+  font-size: var(--wp--preset--font-size--title);
+  margin-top: var(--wp--preset--spacing--40);
+}
+.vd3d-product-story .wp-block-post-content h3 {
+  margin-top: var(--wp--preset--spacing--30);
+}
+/* The description is shown in full above, so hide the duplicate Description tab. */
+.vd3d-product-details .wc-tabs li.description_tab,
+.vd3d-product-details #tab-description {
+  display: none !important;
+}
+
+/* Layout: showcase product page puts the gallery full width above the details */
+.vd3d-product-top--showcase {
+  display: flex;
+  flex-direction: column;
+}
+.vd3d-product-top--showcase .vd3d-product-summary {
+  max-width: 760px;
+}
+
+/* ---------- Footer ---------- */
+.vd3d-footer {
+  padding: 45px 0 24px;
+  margin-top: 0;
+}
+.wp-site-blocks > footer {
+  margin-block-start: 0;
+}
+.vd3d-footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.vd3d-footer .vd3d-brand img {
+  height: 64px;
+  width: auto;
+  max-width: 100%;
+  display: block;
+}
+.vd3d-footer a {
+  color: var(--vd3d-industrial-muted);
+  text-decoration: none;
+}
+.vd3d-footer a:hover {
+  color: var(--wp--preset--color--industrial-text);
+}
+.vd3d-footer-links,
+.vd3d-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 24px;
+  font-size: var(--wp--preset--font-size--small);
+}
+.vd3d-footer-bottom {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--vd3d-industrial-border);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: var(--wp--preset--font-size--small);
+  color: var(--vd3d-industrial-muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .vd3d-header-back {
+    display: none;
+  }
+  .vd3d-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .vd3d-footer-main,
+  .vd3d-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .vd3d-header .vd3d-brand img {
+    height: 40px;
+  }
+  .vd3d-header-top {
+    min-height: 64px;
+  }
+}

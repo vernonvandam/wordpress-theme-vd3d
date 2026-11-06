@@ -1,0 +1,8 @@
+# Don't serve repository internals or docs from the theme folder.
+RedirectMatch 404 /\.git
+<FilesMatch "\.(md|json|lock|yml|yaml)$">
+  Require all denied
+</FilesMatch>
+<Files "theme.json">
+  Require all denied
+</Files>
