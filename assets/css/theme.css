@@ -141,8 +141,9 @@ p.vd3d-eyebrow,
 }
 .vd3d-shop-hero-copy {
   color: var(--vd3d-industrial-muted);
-  max-width: 560px;
   line-height: 1.7;
+  /* Keep the paragraph aligned with the heading but limit its line length. */
+  padding-right: max(0px, calc(100% - 560px));
 }
 
 /* Category list rendered by the Product Categories block */
@@ -347,6 +348,8 @@ p.vd3d-eyebrow,
   padding: 45px 0 24px;
   margin-top: 0;
 }
+/* Header, main and footer sit flush; spacing comes from each section's own padding. */
+.wp-site-blocks > main,
 .wp-site-blocks > footer {
   margin-block-start: 0;
 }
