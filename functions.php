@@ -22,19 +22,10 @@ const VD3D_MAIN_SITE = 'https://vd3d.com.au';
  *   compact  4 columns of smaller cards, for small parts and accessories
  */
 function vd3d_category_layouts(): array {
-	return array(
-		'motorbike-gift-sets' => 'showcase',
-		'signs'               => 'showcase',
-		'lights'              => 'showcase',
-		'bowls'               => 'showcase',
-		'pots'                => 'showcase',
-		'decorations'         => 'showcase',
-		'keyrings'            => 'compact',
-		'tools'               => 'compact',
-		'functional-parts'    => 'compact',
-		'organisation'        => 'compact',
-		'storage'             => 'compact',
-	);
+	// Every category uses the standard grid so all category pages look the same.
+	// To give a category its own look again, map its slug here, for example
+	// 'decorations' => 'showcase' or 'keyrings' => 'compact'.
+	return array();
 }
 
 function vd3d_layout_for_category( string $slug ): string {
