@@ -81,7 +81,10 @@
 }
 
 /* ---------- Shared ---------- */
-.vd3d-main {
+.vd3d-main,
+/* WooCommerce's own cart, checkout and order-received templates use a plain
+   <main>, so give them the same spacing as theme pages. */
+.woocommerce-page .wp-site-blocks > main:not(.vd3d-main) {
   padding-top: var(--wp--preset--spacing--40);
   padding-bottom: var(--wp--preset--spacing--60);
 }
