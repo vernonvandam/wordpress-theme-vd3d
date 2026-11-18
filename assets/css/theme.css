@@ -246,17 +246,26 @@ p.vd3d-eyebrow,
 }
 
 /* ---------- Category and shop archives ---------- */
+/* Dark header panel on every product listing (all products, categories, search),
+   so category pages look the same whatever product layout they use. */
 .vd3d-archive-hero {
-  padding: var(--wp--preset--spacing--40) 0 var(--wp--preset--spacing--30);
-  border-bottom: 1px solid var(--vd3d-border);
+  background: var(--wp--preset--color--industrial);
+  color: var(--wp--preset--color--industrial-text);
+  border: 0;
+  border-radius: var(--vd3d-radius);
+  padding: var(--wp--preset--spacing--50) clamp(20px, 4vw, 56px);
   margin-bottom: var(--wp--preset--spacing--30);
 }
 .vd3d-archive-hero h1 {
   margin: 0;
+  color: var(--wp--preset--color--industrial-text);
+}
+.vd3d-archive-hero .vd3d-eyebrow {
+  color: var(--vd3d-industrial-muted);
 }
 .vd3d-archive-hero .wp-block-term-description {
   max-width: 640px;
-  color: var(--vd3d-muted);
+  color: var(--vd3d-industrial-muted);
   font-size: var(--wp--preset--font-size--lead);
   line-height: 1.7;
   margin-top: 12px;
@@ -299,6 +308,9 @@ p.vd3d-eyebrow,
 }
 .vd3d-products .wp-block-woocommerce-product-button {
   margin-top: auto;
+  /* WooCommerce centres the button; line it up with the title and price instead. */
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 .vd3d-products .wp-block-post-excerpt {
   color: var(--vd3d-muted);
@@ -311,20 +323,6 @@ p.vd3d-eyebrow,
 }
 .vd3d-products--showcase .wc-block-product-template {
   row-gap: var(--wp--preset--spacing--50);
-}
-.vd3d-layout-showcase .vd3d-archive-hero {
-  background: var(--wp--preset--color--industrial);
-  color: var(--wp--preset--color--industrial-text);
-  border: 0;
-  border-radius: var(--vd3d-radius);
-  padding: var(--wp--preset--spacing--50) clamp(20px, 4vw, 56px);
-}
-.vd3d-layout-showcase .vd3d-archive-hero h1 {
-  color: var(--wp--preset--color--industrial-text);
-}
-.vd3d-layout-showcase .vd3d-archive-hero .vd3d-eyebrow,
-.vd3d-layout-showcase .vd3d-archive-hero .wp-block-term-description {
-  color: var(--vd3d-industrial-muted);
 }
 
 /* Layout: compact (small parts and accessories) */
