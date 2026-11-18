@@ -168,9 +168,9 @@ p.vd3d-eyebrow,
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   margin: 0;
-  padding: 16px;
+  padding: 16px 16px 24px;
   border: 1px solid var(--vd3d-border);
   border-radius: var(--vd3d-radius);
   background: var(--wp--preset--color--white);
@@ -215,6 +215,7 @@ p.vd3d-eyebrow,
   background: var(--vd3d-surface);
 }
 .vd3d-category-grid .wc-block-product-categories-list-item-count {
+  display: block;
   font-family: var(--wp--preset--font-family--body);
   font-size: var(--wp--preset--font-size--small);
   font-weight: 400;
