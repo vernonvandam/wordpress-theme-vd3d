@@ -107,6 +107,11 @@ p.vd3d-eyebrow,
 .vd3d-section {
   margin-top: var(--wp--preset--spacing--50);
 }
+/* Clear break between stacked sections (e.g. the category grid and "New in"). The
+   extra selector beats the block layout's own gap, which would otherwise win. */
+.wp-site-blocks .vd3d-section + .vd3d-section {
+  margin-block-start: clamp(3rem, 6vw, 4.5rem);
+}
 .wc-block-breadcrumbs {
   font-size: var(--wp--preset--font-size--small);
   color: var(--vd3d-muted);
