@@ -161,31 +161,54 @@ p.vd3d-eyebrow,
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px;
 }
+/* The whole list item is the card, so the product count (which WooCommerce puts
+   outside the link) sits inside it. WooCommerce's own "has images" styles shrink the
+   image to a 50px thumbnail pulled 60px to the left; those are undone here. */
 .vd3d-category-grid .wc-block-product-categories-list-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   margin: 0;
+  padding: 16px;
+  border: 1px solid var(--vd3d-border);
+  border-radius: var(--vd3d-radius);
+  background: var(--wp--preset--color--white);
+  transition: border-color 0.15s, transform 0.15s;
+}
+.vd3d-category-grid .wc-block-product-categories-list-item:hover,
+.vd3d-category-grid .wc-block-product-categories-list-item:focus-within {
+  border-color: var(--vd3d-green);
+  transform: translateY(-2px);
 }
 .vd3d-category-grid .wc-block-product-categories-list-item > a {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  height: 100%;
-  padding: 16px;
-  border: 1px solid var(--vd3d-border);
-  border-radius: var(--vd3d-radius);
-  background: var(--wp--preset--color--white);
   color: var(--vd3d-ink);
   text-decoration: none;
   font-family: var(--wp--preset--font-family--heading);
   font-size: var(--wp--preset--font-size--lead);
   font-weight: 600;
-  transition: border-color 0.15s, transform 0.15s;
 }
-.vd3d-category-grid .wc-block-product-categories-list-item > a:hover {
-  border-color: var(--vd3d-green);
-  transform: translateY(-2px);
+/* Stretch the link over the whole card so the count area is clickable too. */
+.vd3d-category-grid .wc-block-product-categories-list-item > a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.vd3d-category-grid .wc-block-product-categories-list-item__image,
+.vd3d-category-grid.wc-block-product-categories .wc-block-product-categories-list--has-images .wc-block-product-categories-list-item__image {
+  display: block;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  border: 0;
 }
 .vd3d-category-grid .wc-block-product-categories-list-item__image img {
+  display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 4px;
@@ -196,6 +219,24 @@ p.vd3d-eyebrow,
   font-size: var(--wp--preset--font-size--small);
   font-weight: 400;
   color: var(--vd3d-muted);
+}
+/* WooCommerce shows the count as a bare "(3)" and keeps a properly pluralised
+   "3 products" for screen readers only. Show that wording to everyone instead. */
+.vd3d-category-grid .wc-block-product-categories-list-item-count::before,
+.vd3d-category-grid .wc-block-product-categories-list-item-count::after,
+.vd3d-category-grid .wc-block-product-categories-list-item-count [aria-hidden="true"] {
+  display: none;
+}
+.vd3d-category-grid .wc-block-product-categories-list-item-count .screen-reader-text {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip: auto;
+  clip-path: none;
+  overflow: visible;
+  white-space: normal;
+  word-wrap: normal;
 }
 
 /* ---------- Category and shop archives ---------- */
